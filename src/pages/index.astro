@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="ko-uema2 | Portfolio">
+  <!-- Hero -->
+  <section class="py-12">
+    <h1 class="text-4xl font-bold mb-4">ko-uema2</h1>
+    <p class="text-xl text-brand-gray leading-relaxed max-w-2xl">
+      Backend Engineer specializing in TypeScript, AWS, and application architecture.
+      <br />
+      Clean Architecture and DDD practitioner.
+    </p>
+    <div class="flex gap-3 mt-6">
+      <span class="px-3 py-1 rounded-full border border-brand-orange/40 text-brand-orange text-sm">TypeScript</span>
+      <span class="px-3 py-1 rounded-full border border-brand-blue/40 text-brand-blue text-sm">AWS</span>
+      <span class="px-3 py-1 rounded-full border border-brand-green/40 text-brand-green text-sm">Clean Architecture</span>
+      <span class="px-3 py-1 rounded-full border border-brand-green/40 text-brand-green text-sm">DDD</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-12">
+    <h2 class="text-2xl font-bold mb-8 border-b border-brand-gray/20 pb-4">Projects</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- MoneyForward2Sheet -->
+      <article class="rounded-lg border border-brand-gray/20 p-6 hover:border-brand-orange/40 transition-colors">
+        <h3 class="text-lg font-bold mb-2">MoneyForward2Sheet</h3>
+        <p class="text-brand-gray text-sm mb-4">
+          MoneyForwardの取引データCSVをGoogle Sheetsに自動同期するサーバーレスアプリケーション
+        </p>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">TypeScript</span>
+          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">AWS CDK</span>
+          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">Lambda</span>
+          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">DynamoDB</span>
+          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">Google APIs</span>
+        </div>
+        <div class="text-sm text-brand-gray space-y-1">
+          <p><span class="text-brand-orange">40+</span> Value Objects & Entities</p>
+          <p><span class="text-brand-orange">21</span> ADRs</p>
+          <p><span class="text-brand-orange">46,000</span> lines of test code</p>
+        </div>
+        <a href="https://github.com/ko-uema2/MoneyForward2Sheet"
+           target="_blank" rel="noopener"
+           class="inline-block mt-4 text-sm text-brand-blue hover:text-brand-orange transition-colors">
+          View on GitHub &rarr;
+        </a>
+      </article>
+
+      <!-- Placeholder for future projects -->
+      <article class="rounded-lg border border-dashed border-brand-gray/20 p-6 flex items-center justify-center">
+        <p class="text-brand-gray/40 text-sm">More projects coming soon</p>
+      </article>
+    </div>
+  </section>
+</Layout>

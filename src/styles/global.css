@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  /* Anthropic Brand Colors */
+  --color-brand-dark: #141413;
+  --color-brand-light: #faf9f5;
+  --color-brand-gray: #b0aea5;
+  --color-brand-gray-light: #e8e6dc;
+  --color-brand-orange: #d97757;
+  --color-brand-blue: #6a9bcc;
+  --color-brand-green: #788c5d;
+
+  /* Typography */
+  --font-heading: "Poppins", "Arial", sans-serif;
+  --font-body: "Lora", "Georgia", serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-brand-dark);
+    color: var(--color-brand-light);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}

@@ -1,0 +1,43 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ko-uema2 - Backend Engineer Portfolio" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <header class="border-b border-brand-gray/20 px-6 py-4">
+      <nav class="mx-auto max-w-5xl flex items-center justify-between">
+        <a href="/" class="font-heading text-lg font-semibold text-brand-light hover:text-brand-orange transition-colors">
+          ko-uema2
+        </a>
+        <div class="flex gap-6">
+          <a href="/#projects" class="text-brand-gray hover:text-brand-light transition-colors">Projects</a>
+          <a href="https://github.com/ko-uema2" target="_blank" rel="noopener" class="text-brand-gray hover:text-brand-light transition-colors">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-6 py-12">
+      <slot />
+    </main>
+
+    <footer class="border-t border-brand-gray/20 px-6 py-8 mt-16">
+      <div class="mx-auto max-w-5xl text-center text-brand-gray text-sm">
+        &copy; {new Date().getFullYear()} ko-uema2
+      </div>
+    </footer>
+  </body>
+</html>
