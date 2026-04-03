@@ -1,46 +1,44 @@
-<mxfile host="app.diagrams.net">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
   <diagram name="Pipeline" id="pipeline">
-    <mxGraphModel dx="900" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="900" pageHeight="400" background="#faf9f5">
+    <mxGraphModel dx="485" dy="545" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="600" background="#faf9f5" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- GitHub -->
-        <mxCell id="gh" value="GitHub&#xa;main branch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#24292e;fillOpacity=80;strokeColor=#141413;strokeWidth=1;fontColor=#141413;fontSize=11;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="1">
-          <mxGeometry x="30" y="100" width="110" height="50" as="geometry" />
+        <mxCell id="dev_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6a9bcc;strokeWidth=1.5;dashed=0;verticalAlign=top;fontColor=#6a9bcc;fontSize=13;fontFamily=Helvetica;spacingTop=8;arcSize=6;container=1;collapsible=0;" value="dev アカウント" vertex="1">
+          <mxGeometry height="187" width="680" x="20" y="20" as="geometry" />
         </mxCell>
-
-        <!-- CodePipeline -->
-        <mxCell id="cp" value="CodePipeline" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.step_functions;fontFamily=Helvetica;" vertex="1" parent="1">
-          <mxGeometry x="220" y="90" width="50" height="50" as="geometry" />
+        <!-- gh text removed, using GitHub icon with label instead -->
+        <mxCell id="cp" parent="dev_group" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.codepipeline;fontFamily=Helvetica;" value="CodePipeline" vertex="1">
+          <mxGeometry height="50" width="50" x="200" y="55" as="geometry" />
         </mxCell>
-
-        <!-- CodeBuild -->
-        <mxCell id="cb" value="CodeBuild&#xa;ビルド・テスト" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ED7100;fillOpacity=20;strokeColor=#ED7100;strokeWidth=1;fontColor=#141413;fontSize=11;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="1">
-          <mxGeometry x="360" y="95" width="120" height="45" as="geometry" />
+        <mxCell id="cb" parent="dev_group" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.codebuild;fontFamily=Helvetica;" value="CodeBuild&#xa;ビルド・テスト" vertex="1">
+          <mxGeometry height="50" width="50" x="350" y="55" as="geometry" />
         </mxCell>
-
-        <!-- Manual Approval -->
-        <mxCell id="ma" value="手動承認" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d97757;strokeWidth=1.5;fontColor=#141413;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="1">
-          <mxGeometry x="555" y="85" width="80" height="65" as="geometry" />
+        <mxCell id="ma" parent="dev_group" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d97757;strokeWidth=2;fontColor=#141413;fontSize=11;fontFamily=Helvetica;" value="手動承認" vertex="1">
+          <mxGeometry height="65" width="80" x="520" y="47" as="geometry" />
         </mxCell>
-
-        <!-- Prod Deploy -->
-        <mxCell id="prod" value="prod環境&#xa;デプロイ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#788c5d;fillOpacity=20;strokeColor=#788c5d;strokeWidth=2;fontColor=#141413;fontSize=11;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="1">
-          <mxGeometry x="720" y="95" width="120" height="45" as="geometry" />
+        <mxCell id="gh" parent="dev_group" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github;fontColor=#141413;fontSize=11;fontFamily=Helvetica;" value="GitHub&#xa;main branch" vertex="1">
+          <mxGeometry height="50" width="50" x="50" y="55" as="geometry" />
         </mxCell>
-
-        <!-- Arrows -->
-        <mxCell id="a1" style="rounded=1;strokeColor=#141413;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="gh" target="cp">
+        <mxCell id="prod_group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#788c5d;strokeWidth=1.5;dashed=0;verticalAlign=top;fontColor=#788c5d;fontSize=13;fontFamily=Helvetica;spacingTop=8;arcSize=6;container=1;collapsible=0;" value="prod アカウント" vertex="1">
+          <mxGeometry height="180" width="200" x="760" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="prod" parent="prod_group" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#788c5d;fillOpacity=15;strokeColor=#788c5d;strokeWidth=2;fontColor=#141413;fontSize=12;fontStyle=1;fontFamily=Helvetica;arcSize=12;" value="prod環境&#xa;デプロイ" vertex="1">
+          <mxGeometry height="50" width="130" x="35" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="prod_note" parent="prod_group" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontColor=#788c5d;fontSize=10;fontFamily=Helvetica;fontStyle=2;" value="パイプライン経由のみ" vertex="1">
+          <mxGeometry height="30" width="130" x="35" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="a1" edge="1" parent="1" source="gh" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#141413;strokeWidth=1.5;fontColor=#141413;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" target="cp" value="push通知">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="a2" style="rounded=1;strokeColor=#E7157B;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="cp" target="cb">
+        <mxCell id="a2" edge="1" parent="1" source="cp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E7157B;strokeWidth=1.5;endArrow=block;endFill=1;" target="cb">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="a3" style="rounded=1;strokeColor=#ED7100;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="cb" target="ma">
+        <mxCell id="a3" edge="1" parent="1" source="cb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#ED7100;strokeWidth=1.5;endArrow=block;endFill=1;" target="ma">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="a4" style="rounded=1;strokeColor=#788c5d;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="ma" target="prod">
+        <mxCell id="a4" edge="1" parent="1" source="ma" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#788c5d;strokeWidth=2;fontColor=#141413;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" target="prod" value="承認後デプロイ">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
