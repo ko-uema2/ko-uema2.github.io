@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Architecture" id="monthly-end-bdc-arch">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" background="#faf9f5">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- AWS Cloud Group -->
+        <mxCell id="aws-cloud" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#141413;dashed=0;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="760" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- EventBridge -->
+        <mxCell id="eventbridge" value="EventBridge&lt;br&gt;毎日 9:00 JST" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.eventbridge;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="40" y="80" width="78" height="78" as="geometry"/>
+        </mxCell>
+
+        <!-- Lambda Main -->
+        <mxCell id="lambda-main" value="Lambda&lt;br&gt;メイン処理" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="240" y="80" width="78" height="78" as="geometry"/>
+        </mxCell>
+
+        <!-- Secrets Manager -->
+        <mxCell id="secrets-manager" value="Secrets Manager" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#DD344C;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.secrets_manager;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="460" y="80" width="78" height="78" as="geometry"/>
+        </mxCell>
+
+        <!-- SQS DLQ -->
+        <mxCell id="sqs-dlq" value="SQS&lt;br&gt;Dead Letter Queue" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.sqs;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="240" y="320" width="78" height="78" as="geometry"/>
+        </mxCell>
+
+        <!-- Lambda Retry -->
+        <mxCell id="lambda-retry" value="Lambda&lt;br&gt;リトライ処理" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="460" y="320" width="78" height="78" as="geometry"/>
+        </mxCell>
+
+        <!-- CloudWatch Logs -->
+        <mxCell id="cloudwatch" value="CloudWatch Logs" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.cloudwatch;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;" vertex="1" parent="aws-cloud">
+          <mxGeometry x="620" y="200" width="78" height="78" as="geometry"/>
+        </mxCell>
+
+        <!-- External Services Group -->
+        <mxCell id="external-group" value="外部サービス" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#141413;dashed=1;verticalAlign=top;fontFamily=Helvetica;fontSize=12;fontColor=#141413;container=1;collapsible=0;labelBackgroundColor=#faf9f5;" vertex="1" parent="1">
+          <mxGeometry x="820" y="20" width="280" height="520" as="geometry"/>
+        </mxCell>
+
+        <!-- Google Calendar Holiday -->
+        <mxCell id="gcal-holiday" value="Google Calendar API&lt;br&gt;祝日カレンダー" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=11;fontColor=#141413;labelBackgroundColor=#faf9f5;" vertex="1" parent="external-group">
+          <mxGeometry x="40" y="60" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- LINE Messaging API -->
+        <mxCell id="line-api" value="LINE Messaging API&lt;br&gt;プッシュ通知" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontFamily=Helvetica;fontSize=11;fontColor=#141413;labelBackgroundColor=#faf9f5;" vertex="1" parent="external-group">
+          <mxGeometry x="40" y="200" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Google Calendar Event -->
+        <mxCell id="gcal-event" value="Google Calendar API&lt;br&gt;予定作成" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontFamily=Helvetica;fontSize=11;fontColor=#141413;labelBackgroundColor=#faf9f5;" vertex="1" parent="external-group">
+          <mxGeometry x="40" y="340" width="200" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Edges -->
+        <!-- EventBridge -> Lambda Main -->
+        <mxCell id="edge-eb-lambda" value="cron起動" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;" edge="1" parent="1" source="eventbridge" target="lambda-main">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Lambda Main -> Secrets Manager -->
+        <mxCell id="edge-lambda-sm" value="認証情報取得" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;" edge="1" parent="1" source="lambda-main" target="secrets-manager">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Lambda Main -> Google Calendar Holiday -->
+        <mxCell id="edge-lambda-gcal-h" value="祝日取得" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="lambda-main" target="gcal-holiday">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="139"/>
+              <mxPoint x="780" y="110"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Lambda Main -> LINE API -->
+        <mxCell id="edge-lambda-line" value="通知送信" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="lambda-main" target="line-api">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="139"/>
+              <mxPoint x="800" y="250"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Lambda Main -> Google Calendar Event -->
+        <mxCell id="edge-lambda-gcal-e" value="予定作成" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="lambda-main" target="gcal-event">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="299" y="250"/>
+              <mxPoint x="810" y="250"/>
+              <mxPoint x="810" y="390"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Lambda Main -> SQS DLQ -->
+        <mxCell id="edge-lambda-dlq" value="失敗時" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;dashed=1;labelBackgroundColor=#faf9f5;" edge="1" parent="1" source="lambda-main" target="sqs-dlq">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- SQS DLQ -> Lambda Retry -->
+        <mxCell id="edge-dlq-retry" value="自動再実行" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;" edge="1" parent="1" source="sqs-dlq" target="lambda-retry">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Lambda Main -> CloudWatch -->
+        <mxCell id="edge-lambda-cw" value="構造化ログ" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;fontFamily=Helvetica;fontSize=10;fontColor=#141413;dashed=1;labelBackgroundColor=#faf9f5;" edge="1" parent="1" source="lambda-main" target="cloudwatch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
