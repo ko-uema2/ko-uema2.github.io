@@ -1,0 +1,158 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, role, repo, techStack, stats } = project.data;
+---
+
+<Layout title={`${title} | ko-uema2`}>
+  <!-- Header -->
+  <div class="mb-8">
+    <a href="/" class="text-sm text-brand-gray hover:text-brand-orange transition-colors">
+      &larr; Back to Portfolio
+    </a>
+  </div>
+
+  <article>
+    <!-- Project Header -->
+    <header class="mb-10">
+      <h1 class="text-3xl font-bold mb-3">{title}</h1>
+      <p class="text-brand-dark/70 text-lg mb-4">{description}</p>
+      <p class="text-sm text-brand-gray">
+        <span class="text-brand-dark">担当:</span> {role}
+      </p>
+      {repo && (
+        <a href={repo} target="_blank" rel="noopener"
+           class="inline-block mt-3 text-sm text-brand-blue hover:text-brand-orange transition-colors">
+          View on GitHub &rarr;
+        </a>
+      )}
+    </header>
+
+    <!-- Tech Stack & Stats -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 rounded-lg border border-brand-gray/20 p-6">
+      <div>
+        <h2 class="text-sm font-semibold text-brand-dark mb-3">技術スタック</h2>
+        <table class="w-full text-sm text-brand-dark/70">
+          <tbody>
+            {techStack.map((item, i) => (
+              <tr class={i < techStack.length - 1 ? "border-b border-brand-gray/10" : ""}>
+                <td class="py-1.5 text-brand-dark w-28">{item.category}</td>
+                <td class="py-1.5">{item.tech}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {stats && stats.length > 0 && (
+        <div>
+          <h2 class="text-sm font-semibold text-brand-dark mb-3">規模</h2>
+          <div class="grid grid-cols-2 gap-4">
+            {stats.map((stat) => (
+              <div>
+                <p class="text-2xl font-bold text-brand-orange">{stat.value}</p>
+                <p class="text-xs text-brand-gray">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+
+    <!-- Markdown Content -->
+    <section class="prose-custom">
+      <Content />
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .prose-custom :global(h2) {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-brand-dark);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-gray) 20%, transparent);
+  }
+
+  .prose-custom :global(h3) {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-brand-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-custom :global(p) {
+    color: color-mix(in srgb, var(--color-brand-dark) 70%, transparent);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-custom :global(ul) {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-custom :global(li) {
+    color: color-mix(in srgb, var(--color-brand-dark) 70%, transparent);
+    font-size: 0.875rem;
+    line-height: 1.7;
+    margin-bottom: 0.25rem;
+  }
+
+  .prose-custom :global(strong) {
+    color: var(--color-brand-dark);
+  }
+
+  .prose-custom :global(pre) {
+    background-color: var(--color-brand-gray-light);
+    border: 1px solid color-mix(in srgb, var(--color-brand-gray) 30%, transparent);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  .prose-custom :global(code) {
+    font-size: 0.8rem;
+    color: var(--color-brand-dark);
+  }
+
+  .prose-custom :global(table) {
+    width: 100%;
+    font-size: 0.8rem;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+
+  .prose-custom :global(th) {
+    text-align: left;
+    color: var(--color-brand-dark);
+    padding: 0.5rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-gray) 30%, transparent);
+  }
+
+  .prose-custom :global(td) {
+    color: color-mix(in srgb, var(--color-brand-dark) 70%, transparent);
+    padding: 0.5rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-gray) 10%, transparent);
+  }
+</style>

@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Pipeline" id="pipeline">
+    <mxGraphModel dx="900" dy="400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="900" pageHeight="400" background="#faf9f5">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- GitHub -->
+        <mxCell id="gh" value="GitHub&#xa;main branch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#24292e;fillOpacity=80;strokeColor=#141413;strokeWidth=1;fontColor=#141413;fontSize=11;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="100" width="110" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- CodePipeline -->
+        <mxCell id="cp" value="CodePipeline" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.step_functions;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="220" y="90" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- CodeBuild -->
+        <mxCell id="cb" value="CodeBuild&#xa;ビルド・テスト" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ED7100;fillOpacity=20;strokeColor=#ED7100;strokeWidth=1;fontColor=#141413;fontSize=11;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="95" width="120" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Manual Approval -->
+        <mxCell id="ma" value="手動承認" style="rhombus;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d97757;strokeWidth=1.5;fontColor=#141413;fontSize=11;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="555" y="85" width="80" height="65" as="geometry" />
+        </mxCell>
+
+        <!-- Prod Deploy -->
+        <mxCell id="prod" value="prod環境&#xa;デプロイ" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#788c5d;fillOpacity=20;strokeColor=#788c5d;strokeWidth=2;fontColor=#141413;fontSize=11;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="95" width="120" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="a1" style="rounded=1;strokeColor=#141413;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="gh" target="cp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" style="rounded=1;strokeColor=#E7157B;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="cp" target="cb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" style="rounded=1;strokeColor=#ED7100;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="cb" target="ma">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a4" style="rounded=1;strokeColor=#788c5d;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="ma" target="prod">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

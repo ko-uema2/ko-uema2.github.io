@@ -1,17 +1,26 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+
+const allProjects = await getCollection("projects");
+const featured = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const others = allProjects
+  .filter((p) => !p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <Layout title="ko-uema2 | Portfolio">
   <!-- Hero -->
   <section class="py-12">
     <h1 class="text-4xl font-bold mb-4">ko-uema2</h1>
-    <p class="text-xl text-brand-gray leading-relaxed max-w-2xl">
+    <p class="text-xl text-brand-dark/70 leading-relaxed max-w-2xl">
       Backend Engineer specializing in TypeScript, AWS, and application architecture.
       <br />
       Clean Architecture and DDD practitioner.
     </p>
-    <div class="flex gap-3 mt-6">
+    <div class="flex gap-3 mt-6 flex-wrap">
       <span class="px-3 py-1 rounded-full border border-brand-orange/40 text-brand-orange text-sm">TypeScript</span>
       <span class="px-3 py-1 rounded-full border border-brand-blue/40 text-brand-blue text-sm">AWS</span>
       <span class="px-3 py-1 rounded-full border border-brand-green/40 text-brand-green text-sm">Clean Architecture</span>
@@ -19,40 +28,118 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- Featured Projects -->
+  {featured.length > 0 && (
+    <section class="py-12">
+      <h2 class="text-2xl font-bold mb-8 border-b border-brand-gray/20 pb-4">Featured</h2>
+
+      {featured.map((project) => (
+        <article class="rounded-lg border border-brand-gray/20 p-8 hover:border-brand-orange/40 transition-colors mb-6">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-bold">{project.data.title}</h3>
+              <p class="text-brand-dark/70 text-sm mt-1">{project.data.description}</p>
+            </div>
+            {project.data.repo && (
+              <a href={project.data.repo}
+                 target="_blank" rel="noopener"
+                 class="text-sm text-brand-blue hover:text-brand-orange transition-colors shrink-0 ml-4">
+                GitHub &rarr;
+              </a>
+            )}
+          </div>
+
+          <p class="text-xs text-brand-gray mb-6">
+            <span class="text-brand-dark">担当:</span> {project.data.role}
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="text-sm font-semibold text-brand-dark mb-3">技術スタック</h4>
+              <table class="w-full text-xs text-brand-dark/70">
+                <tbody>
+                  {project.data.techStack.map((item, i) => (
+                    <tr class={i < project.data.techStack.length - 1 ? "border-b border-brand-gray/10" : ""}>
+                      <td class="py-1.5 text-brand-dark font-medium w-24">{item.category}</td>
+                      <td class="py-1.5">{item.tech}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              {project.data.stats && (
+                <div class="flex gap-6 mt-4 text-xs text-brand-gray">
+                  {project.data.stats.map((stat) => (
+                    <span>
+                      <span class="text-brand-orange font-semibold text-sm">{stat.value}</span> {stat.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <h4 class="text-sm font-semibold text-brand-dark mb-3">設計</h4>
+              <ul class="space-y-2 text-xs text-brand-dark/70">
+                <li><span class="text-brand-dark font-medium">Clean Architecture + DDD</span> — 4層分離、値オブジェクト・エンティティ40以上</li>
+                <li><span class="text-brand-dark font-medium">エラーハンドリング 3層分離</span> — Chain of Responsibility でエラー翻訳</li>
+                <li><span class="text-brand-dark font-medium">Decorator パターン</span> — ロギング・キャッシングの横断的関心事を分離</li>
+                <li><span class="text-brand-dark font-medium">マルチアカウント CI/CD</span> — 本番デプロイはパイプライン経由のみ</li>
+              </ul>
+            </div>
+          </div>
+
+          <a href={`/projects/${project.id}/`}
+             class="inline-block mt-6 text-sm text-brand-blue hover:text-brand-orange transition-colors">
+            詳細を見る &rarr;
+          </a>
+        </article>
+      ))}
+    </section>
+  )}
+
+  <!-- Other Projects -->
   <section id="projects" class="py-12">
-    <h2 class="text-2xl font-bold mb-8 border-b border-brand-gray/20 pb-4">Projects</h2>
+    <h2 class="text-2xl font-bold mb-8 border-b border-brand-gray/20 pb-4">Other Projects</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- MoneyForward2Sheet -->
-      <article class="rounded-lg border border-brand-gray/20 p-6 hover:border-brand-orange/40 transition-colors">
-        <h3 class="text-lg font-bold mb-2">MoneyForward2Sheet</h3>
-        <p class="text-brand-gray text-sm mb-4">
-          MoneyForwardの取引データCSVをGoogle Sheetsに自動同期するサーバーレスアプリケーション
-        </p>
-        <div class="flex flex-wrap gap-2 mb-4">
-          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">TypeScript</span>
-          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">AWS CDK</span>
-          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">Lambda</span>
-          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">DynamoDB</span>
-          <span class="px-2 py-0.5 bg-brand-gray-light/10 text-brand-gray text-xs rounded">Google APIs</span>
-        </div>
-        <div class="text-sm text-brand-gray space-y-1">
-          <p><span class="text-brand-orange">40+</span> Value Objects & Entities</p>
-          <p><span class="text-brand-orange">21</span> ADRs</p>
-          <p><span class="text-brand-orange">46,000</span> lines of test code</p>
-        </div>
-        <a href="https://github.com/ko-uema2/MoneyForward2Sheet"
-           target="_blank" rel="noopener"
-           class="inline-block mt-4 text-sm text-brand-blue hover:text-brand-orange transition-colors">
-          View on GitHub &rarr;
-        </a>
-      </article>
+      {others.map((project) => (
+        <article class="rounded-lg border border-brand-gray/20 p-6 hover:border-brand-orange/40 transition-colors">
+          <h3 class="text-lg font-bold mb-2">{project.data.title}</h3>
+          <p class="text-brand-dark/70 text-sm mb-4">{project.data.description}</p>
 
-      <!-- Placeholder for future projects -->
-      <article class="rounded-lg border border-dashed border-brand-gray/20 p-6 flex items-center justify-center">
-        <p class="text-brand-gray/40 text-sm">More projects coming soon</p>
-      </article>
+          <p class="text-xs text-brand-gray mb-3">
+            <span class="text-brand-dark">担当:</span> {project.data.role}
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-4">
+            {project.data.techStack.map((item) => (
+              <span class="px-2 py-0.5 bg-brand-gray-light/40 text-brand-dark/70 text-xs rounded">
+                {item.tech}
+              </span>
+            ))}
+          </div>
+
+          <div class="flex gap-4">
+            <a href={`/projects/${project.id}/`}
+               class="text-sm text-brand-blue hover:text-brand-orange transition-colors">
+              詳細を見る &rarr;
+            </a>
+            {project.data.repo && (
+              <a href={project.data.repo} target="_blank" rel="noopener"
+                 class="text-sm text-brand-gray hover:text-brand-dark transition-colors">
+                GitHub &rarr;
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+
+      {others.length === 0 && (
+        <article class="rounded-lg border border-dashed border-brand-gray/20 p-6 flex items-center justify-center min-h-32">
+          <p class="text-brand-gray/40 text-sm">Coming soon</p>
+        </article>
+      )}
     </div>
   </section>
 </Layout>

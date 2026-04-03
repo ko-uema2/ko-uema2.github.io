@@ -1,0 +1,163 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Architecture" id="arch">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1400" pageHeight="900" background="#faf9f5">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- External Services Group -->
+        <mxCell id="ext_group" value="外部サービス" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#141413;strokeWidth=1;dashed=1;verticalAlign=top;fontColor=#141413;fontSize=13;fontFamily=Helvetica;spacingTop=8;arcSize=6;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="20" y="80" width="240" height="340" as="geometry" />
+        </mxCell>
+
+        <!-- Google Drive -->
+        <mxCell id="gdrive" value="Google Drive" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4285F4;fillOpacity=20;strokeColor=#4285F4;strokeWidth=1;fontColor=#141413;fontSize=12;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="ext_group">
+          <mxGeometry x="30" y="60" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Google Sheets -->
+        <mxCell id="gsheets" value="Google Sheets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0F9D58;fillOpacity=20;strokeColor=#0F9D58;strokeWidth=1;fontColor=#141413;fontSize=12;fontFamily=Helvetica;arcSize=12;" vertex="1" parent="ext_group">
+          <mxGeometry x="30" y="140" width="180" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- AWS Cloud Group -->
+        <mxCell id="aws_group" value="AWS Cloud" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=13;fontStyle=0;container=1;pointerEvents=0;collapsible=0;recursiveResize=0;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud_alt;strokeColor=#141413;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;fontColor=#141413;dashed=0;fontFamily=Helvetica;" vertex="1" parent="1">
+          <mxGeometry x="320" y="20" width="900" height="540" as="geometry" />
+        </mxCell>
+
+        <!-- API Gateway -->
+        <mxCell id="apigw" value="API Gateway" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.api_gateway;fontFamily=Helvetica;" vertex="1" parent="aws_group">
+          <mxGeometry x="40" y="80" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Lambda Functions Group -->
+        <mxCell id="lambda_group" value="Lambda Functions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#ED7100;strokeWidth=1;dashed=1;verticalAlign=top;fontColor=#ED7100;fontSize=12;fontFamily=Helvetica;spacingTop=8;arcSize=6;container=1;collapsible=0;" vertex="1" parent="aws_group">
+          <mxGeometry x="180" y="40" width="680" height="200" as="geometry" />
+        </mxCell>
+
+        <!-- webhookHandler -->
+        <mxCell id="wh" value="webhook&#xa;Handler" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;" vertex="1" parent="lambda_group">
+          <mxGeometry x="20" y="50" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- subscribeHandler -->
+        <mxCell id="sub" value="subscribe&#xa;Handler" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;" vertex="1" parent="lambda_group">
+          <mxGeometry x="140" y="50" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- unsubscribeHandler -->
+        <mxCell id="unsub" value="unsubscribe&#xa;Handler" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;" vertex="1" parent="lambda_group">
+          <mxGeometry x="260" y="50" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- statusHandler -->
+        <mxCell id="status" value="status&#xa;Handler" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;" vertex="1" parent="lambda_group">
+          <mxGeometry x="380" y="50" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- configHandler -->
+        <mxCell id="config" value="config&#xa;Handler" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;" vertex="1" parent="lambda_group">
+          <mxGeometry x="500" y="50" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- renewalHandler -->
+        <mxCell id="renew" value="renewal&#xa;Handler" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#ED7100;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.lambda;fontFamily=Helvetica;" vertex="1" parent="lambda_group">
+          <mxGeometry x="620" y="50" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- DynamoDB -->
+        <mxCell id="ddb" value="DynamoDB" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#C925D1;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.dynamodb;fontFamily=Helvetica;" vertex="1" parent="aws_group">
+          <mxGeometry x="60" y="320" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Secrets Manager -->
+        <mxCell id="sm" value="Secrets&#xa;Manager" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#DD344C;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.secrets_manager;fontFamily=Helvetica;" vertex="1" parent="aws_group">
+          <mxGeometry x="220" y="320" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- SES -->
+        <mxCell id="ses" value="Amazon SES" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.sns;fontFamily=Helvetica;" vertex="1" parent="aws_group">
+          <mxGeometry x="380" y="320" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- EventBridge -->
+        <mxCell id="eb" value="EventBridge" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.eventbridge;fontFamily=Helvetica;" vertex="1" parent="aws_group">
+          <mxGeometry x="540" y="320" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- CodePipeline -->
+        <mxCell id="cp" value="CodePipeline" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.step_functions;fontFamily=Helvetica;" vertex="1" parent="aws_group">
+          <mxGeometry x="700" y="320" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- SSM Parameter Store -->
+        <mxCell id="ssm" value="SSM&#xa;Parameter Store" style="sketch=0;outlineConnect=0;fontColor=#141413;gradientColor=none;strokeColor=#ffffff;fillColor=#E7157B;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.systems_manager;fontFamily=Helvetica;" vertex="1" parent="aws_group">
+          <mxGeometry x="40" y="440" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ===== Edges ===== -->
+
+        <!-- Google Drive → API Gateway (Push Notification) -->
+        <mxCell id="e1" value="Push Notification" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#141413;strokeWidth=1.5;fontColor=#141413;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="gdrive" target="apigw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- API Gateway → webhookHandler -->
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E7157B;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="apigw" target="wh">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- API Gateway → subscribeHandler -->
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E7157B;strokeWidth=1;endArrow=block;endFill=1;" edge="1" parent="1" source="apigw" target="sub">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- webhookHandler → Google Drive (CSV取得) -->
+        <mxCell id="e4" value="CSV取得" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6a9bcc;strokeWidth=1;dashed=1;fontColor=#b0aea5;fontSize=9;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="wh" target="gdrive">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- webhookHandler → Google Sheets (集計書き込み) -->
+        <mxCell id="e5" value="集計書き込み" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6a9bcc;strokeWidth=1;dashed=1;fontColor=#b0aea5;fontSize=9;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="wh" target="gsheets">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- webhookHandler → DynamoDB -->
+        <mxCell id="e6" value="トークン検証" style="rounded=1;strokeColor=#b0aea5;strokeWidth=1;dashed=1;fontColor=#b0aea5;fontSize=9;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="wh" target="ddb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- webhookHandler → Secrets Manager -->
+        <mxCell id="e7" value="認証情報取得" style="rounded=1;strokeColor=#b0aea5;strokeWidth=1;dashed=1;fontColor=#b0aea5;fontSize=9;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="wh" target="sm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- webhookHandler → SES -->
+        <mxCell id="e8" value="エラー通知" style="rounded=1;strokeColor=#b0aea5;strokeWidth=1;dashed=1;fontColor=#b0aea5;fontSize=9;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="wh" target="ses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- EventBridge → renewalHandler -->
+        <mxCell id="e9" value="12h更新" style="rounded=1;strokeColor=#E7157B;strokeWidth=1.5;fontColor=#141413;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="eb" target="renew">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- subscribeHandler → DynamoDB -->
+        <mxCell id="e10" value="状態保存" style="rounded=1;strokeColor=#b0aea5;strokeWidth=1;dashed=1;fontColor=#b0aea5;fontSize=9;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="sub" target="ddb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- configHandler → DynamoDB -->
+        <mxCell id="e11" value="設定保存" style="rounded=1;strokeColor=#b0aea5;strokeWidth=1;dashed=1;fontColor=#b0aea5;fontSize=9;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="config" target="ddb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CodePipeline → Lambda Group -->
+        <mxCell id="e12" value="自動デプロイ" style="rounded=1;strokeColor=#788c5d;strokeWidth=1.5;fontColor=#141413;fontSize=10;fontFamily=Helvetica;labelBackgroundColor=#faf9f5;endArrow=block;endFill=1;" edge="1" parent="1" source="cp" target="lambda_group">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
