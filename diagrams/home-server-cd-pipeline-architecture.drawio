@@ -1,0 +1,90 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Architecture" id="home-cd-arch">
+    <mxGraphModel dx="523" dy="444" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="600" background="#faf9f5" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="note-sec-conn" edge="1" parent="1" source="note-sec" style="endArrow=none;dashed=1;strokeColor=#d6b656;fontFamily=Helvetica;" target="ubuntu-icon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;fontStyle=1;fontFamily=Helvetica;fontColor=#141413;align=left;verticalAlign=middle;" value="自宅サーバーへの CD パイプライン" vertex="1">
+          <mxGeometry height="40" width="500" x="40" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dev-icon" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;fontFamily=Helvetica;shape=mxgraph.aws4.user;fillColor=#141413;" value="" vertex="1">
+          <mxGeometry height="40" width="40" x="60" y="131" as="geometry" />
+        </mxCell>
+        <mxCell id="dev-label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;" value="Developer" vertex="1">
+          <mxGeometry height="25" width="80" x="40" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="github-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#141413;dashed=1;strokeWidth=1;fontSize=14;fontStyle=1;fontFamily=Helvetica;fontColor=#141413;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;" value="GitHub" vertex="1">
+          <mxGeometry height="200" width="240" x="160" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="pr-icon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;fontColor=#141413;" value="PR Merge&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;main branch&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="160" x="200" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ga-icon" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontFamily=Helvetica;fontColor=#141413;" value="GitHub Actions&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;ubuntu-latest&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="160" x="200" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="cf-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#F48120;dashed=1;strokeWidth=1;fontSize=14;fontStyle=1;fontFamily=Helvetica;fontColor=#F48120;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;" value="Cloudflare" vertex="1">
+          <mxGeometry height="200" width="260" x="480" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="cf-access" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontFamily=Helvetica;fontColor=#141413;" value="Cloudflare Access&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;Zero Trust (ZTNA)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="200" x="510" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="cf-tunnel" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontFamily=Helvetica;fontColor=#141413;" value="Cloudflare Tunnel&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;暗号化トンネル&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="200" x="510" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="home-group" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;dashed=1;strokeWidth=1;fontSize=14;fontStyle=1;fontFamily=Helvetica;fontColor=#82b366;verticalAlign=top;align=left;spacingLeft=10;spacingTop=5;" value="自宅 LAN" vertex="1">
+          <mxGeometry height="200" width="380" x="820" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ubuntu-icon" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;fontFamily=Helvetica;shape=mxgraph.aws4.traditional_server;fillColor=#ED7100;" value="" vertex="1">
+          <mxGeometry height="62" width="40" x="870" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="ubuntu-label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;labelBackgroundColor=#FAF9F5;" value="Ubuntu Desktop&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;24.04 LTS&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="840" y="185" as="geometry" />
+        </mxCell>
+        <mxCell id="apache-box" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontFamily=Helvetica;fontColor=#141413;" value="Apache Web Server&lt;br&gt;&lt;font style=&quot;font-size:10px;&quot;&gt;/var/www/html&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="130" x="1040" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="note-cf" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontFamily=Helvetica;fontColor=#141413;align=left;spacingLeft=6;" value="Service Token 認証:&lt;br&gt;Client ID + Secret で&lt;br&gt;自動認証（人間の介入不要）" vertex="1">
+          <mxGeometry height="55" width="200" x="480" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="note-cf-conn" edge="1" parent="1" source="note-cf" style="endArrow=none;dashed=1;strokeColor=#d6b656;fontFamily=Helvetica;" target="cf-access">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="note-sec" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;fontFamily=Helvetica;fontColor=#141413;align=left;spacingLeft=6;" value="セキュリティ設計:&lt;br&gt;・SSH ed25519 公開鍵認証&lt;br&gt;・StrictHostKeyChecking=yes&lt;br&gt;・UFW ファイアウォール + rate limit&lt;br&gt;・rsync include/exclude フィルター" vertex="1">
+          <mxGeometry height="80" width="250" x="870" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-dev-pr" edge="1" parent="1" source="dev-icon" style="endArrow=block;endFill=1;strokeColor=#141413;strokeWidth=1;fontFamily=Helvetica;html=1;" target="pr-icon" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-pr-ga" edge="1" parent="1" source="pr-icon" style="endArrow=block;endFill=1;strokeColor=#141413;strokeWidth=2;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;html=1;" target="ga-icon" value="① トリガー">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-ga-access" edge="1" parent="1" source="ga-icon" style="endArrow=block;endFill=1;strokeColor=#141413;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;html=1;edgeStyle=orthogonalEdgeStyle;" target="cf-access" value="② 認証">
+          <mxGeometry relative="1" x="0.1304" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="450" y="230" />
+              <mxPoint x="450" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-access-tunnel" edge="1" parent="1" source="cf-access" style="endArrow=block;endFill=1;strokeColor=#141413;strokeWidth=2;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;html=1;" target="cf-tunnel" value="③ 通過">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow-tunnel-ubuntu" edge="1" parent="1" source="cf-tunnel" style="endArrow=block;endFill=1;strokeColor=#141413;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;html=1;edgeStyle=orthogonalEdgeStyle;" target="ubuntu-icon" value="④ SSH接続">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="790" y="230" />
+              <mxPoint x="790" y="151" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="arrow-ubuntu-apache" edge="1" parent="1" source="ubuntu-icon" style="endArrow=block;endFill=1;strokeColor=#141413;strokeWidth=1;fontFamily=Helvetica;fontSize=10;fontColor=#141413;labelBackgroundColor=#faf9f5;html=1;" target="apache-box" value="⑤ rsync デプロイ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
