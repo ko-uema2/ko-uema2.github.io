@@ -20,5 +20,8 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# draw.io backup files
+.*drawio.bkp
+
 # jetbrains setting folder
 .idea/
