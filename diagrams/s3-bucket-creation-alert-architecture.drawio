@@ -1,0 +1,132 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Architecture" id="s3-bucket-creation-alert">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="600" background="#faf9f5" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" parent="1" style="text;html=1;fontSize=18;fontStyle=1;fontFamily=Helvetica;fontColor=#141413;align=left;verticalAlign=middle;" value="S3 バケット新規作成 監視・通知システム" vertex="1">
+          <mxGeometry height="30" width="500" x="30" y="20" as="geometry" />
+        </mxCell>
+
+        <!-- S3 Bucket -->
+        <mxCell id="s3" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.bucket;fontFamily=Helvetica;" value="" vertex="1">
+          <mxGeometry height="68" width="65.38" x="57" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="s3_label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;labelBackgroundColor=#faf9f5;" value="Amazon S3&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;CreateBucket API&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="30" y="210" as="geometry" />
+        </mxCell>
+
+        <!-- CloudTrail -->
+        <mxCell id="cloudtrail" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudtrail;fontFamily=Helvetica;" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="260" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ct_label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;labelBackgroundColor=#faf9f5;" value="AWS CloudTrail&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;証跡（全リージョン）&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="140" x="220" y="210" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch Logs -->
+        <mxCell id="cwlogs" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch_2;fontFamily=Helvetica;" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="460" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="cwlogs_label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;labelBackgroundColor=#faf9f5;" value="CloudWatch Logs&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;メトリクスフィルター&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="150" x="415" y="210" as="geometry" />
+        </mxCell>
+
+        <!-- CloudWatch Alarm -->
+        <mxCell id="cwalarm" parent="1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.alarm;fontFamily=Helvetica;" value="" vertex="1">
+          <mxGeometry height="68" width="68" x="656" y="136" as="geometry" />
+        </mxCell>
+        <mxCell id="cwalarm_label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;labelBackgroundColor=#faf9f5;" value="CloudWatch Alarm&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;合計 &amp;gt; 0 で発火&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="150" x="615" y="210" as="geometry" />
+        </mxCell>
+
+        <!-- SNS -->
+        <mxCell id="sns" parent="1" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;fontColor=#232F3E;fillColor=#E7157B;strokeColor=#ffffff;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sns;fontFamily=Helvetica;" value="" vertex="1">
+          <mxGeometry height="60" width="60" x="860" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="sns_label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;labelBackgroundColor=#faf9f5;" value="Amazon SNS&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;Emailサブスクリプション&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="160" x="810" y="210" as="geometry" />
+        </mxCell>
+
+        <!-- Email -->
+        <mxCell id="email" parent="1" style="shape=mxgraph.signs.tech.mail;html=1;pointerEvents=1;fillColor=#000000;strokeColor=none;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontFamily=Helvetica;" value="" vertex="1">
+          <mxGeometry height="55" width="73" x="1053" y="143" as="geometry" />
+        </mxCell>
+        <mxCell id="email_label" parent="1" style="text;html=1;fontSize=12;fontFamily=Helvetica;fontColor=#141413;align=center;verticalAlign=top;labelBackgroundColor=#faf9f5;" value="メール通知" vertex="1">
+          <mxGeometry height="30" width="90" x="1045" y="210" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="arrow1" edge="1" parent="1" source="s3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#141413;fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=11;" target="cloudtrail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow1_label" connectable="0" parent="arrow1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=10;" value="① 管理イベント記録" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow2" edge="1" parent="1" source="cloudtrail" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#141413;fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=11;" target="cwlogs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow2_label" connectable="0" parent="arrow2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=10;" value="② ログ配信" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow3" edge="1" parent="1" source="cwlogs" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#141413;fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=11;" target="cwalarm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow3_label" connectable="0" parent="arrow3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=10;" value="③ メトリクス発行" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow4" edge="1" parent="1" source="cwalarm" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#141413;fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=11;" target="sns">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow4_label" connectable="0" parent="arrow4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=10;" value="④ アラーム発火" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="arrow5" edge="1" parent="1" source="sns" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#141413;fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=11;" target="email">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="arrow5_label" connectable="0" parent="arrow5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Helvetica;fontColor=#141413;labelBackgroundColor=#faf9f5;fontSize=10;" value="⑤ メール送信" vertex="1">
+          <mxGeometry relative="1" x="-0.1" as="geometry">
+            <mxPoint y="-15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Notes -->
+        <mxCell id="note1" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=middle;align=center;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontColor=#141413;fontSize=11;" value="フィルターパターン:&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;{ ($.eventName = &amp;quot;CreateBucket&amp;quot;) }&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="220" x="430" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="note1_conn" edge="1" parent="1" source="note1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;strokeColor=#d6b656;fontFamily=Helvetica;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="cwlogs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note2" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=middle;align=center;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontColor=#141413;fontSize=11;" value="全リージョンの管理イベント（書き込み）を収集&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;KMS / RDS イベントは除外&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="200" x="190" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="note2_conn" edge="1" parent="1" source="note2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;strokeColor=#d6b656;fontFamily=Helvetica;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="cloudtrail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="note3" parent="1" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=middle;align=center;fillColor=#fff2cc;strokeColor=#d6b656;fontFamily=Helvetica;fontColor=#141413;fontSize=11;" value="S3保存時 KMS暗号化" vertex="1">
+          <mxGeometry height="40" width="160" x="220" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="note3_conn" edge="1" parent="1" source="note3" style="rounded=1;dashed=1;strokeColor=#d6b656;fontFamily=Helvetica;" target="cloudtrail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
