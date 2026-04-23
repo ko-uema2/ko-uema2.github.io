@@ -11,8 +11,9 @@
   --color-brand-green: #788c5d;
 
   /* Typography */
-  --font-heading: "Poppins", "Arial", sans-serif;
-  --font-body: "Lora", "Georgia", serif;
+  --font-heading: "Plus Jakarta Sans", "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Lora", "Noto Serif JP", Georgia, serif;
+  --font-mono: "JetBrains Mono", "Menlo", "Consolas", monospace;
 }
 
 @layer base {
@@ -20,9 +21,19 @@
     font-family: var(--font-body);
     background-color: var(--color-brand-light);
     color: var(--color-brand-dark);
+    font-feature-settings: "palt";
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    font-feature-settings: "palt";
+  }
+
+  code, kbd, samp, pre {
+    font-family: var(--font-mono);
+  }
+
+  pre {
+    overflow-x: auto;
   }
 }
